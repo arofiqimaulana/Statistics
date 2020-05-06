@@ -10,8 +10,6 @@ Gibbs sampling merupakan algoritma dalam metode MCMC yang digunakan untuk pengam
 ### Pemeriksaan Konvergensi Algoritma
 Pemeriksaan konvergensi MCMC digunakan untuk mengetahui apakah sampel yang dibangkitkan sesuai dengan distribusi target yakni distribusi posterior. Pemeriksaan konvergensi MCMC dapat menggunakan trace plot, MC Error dan autokorelasi.
 
-Output traceplot dan autokorelasi seperti berikut
-
 ![](images/BayesianZIG.png)
 
 
