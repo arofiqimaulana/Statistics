@@ -1,0 +1,41 @@
+[System]
+Name='datarulebaru'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Yt1'
+Range=[1 36]
+NumMFs=3
+MF1='short':'gaussmf',[11.085 1]
+MF2='medium':'gaussmf',[11.085 18.5]
+MF3='Large':'gaussmf',[11.085 35.91]
+
+[Input2]
+Name='Yt2'
+Range=[1 36]
+NumMFs=3
+MF1='kecil':'gaussmf',[10.9083 1]
+MF2='menengah':'gaussmf',[10.9083 18.5]
+MF3='besar':'gaussmf',[10.9083 36]
+
+[Output1]
+Name='Yt'
+Range=[1 36]
+NumMFs=3
+MF1='K':'gaussmf',[11.1 1]
+MF2='M':'gaussmf',[11.085 14.33]
+MF3='B':'gaussmf',[11.085 36]
+
+[Rules]
+3 3, 2 (1) : 1
+2 2, 1 (1) : 1
+1 1, 1 (1) : 1
