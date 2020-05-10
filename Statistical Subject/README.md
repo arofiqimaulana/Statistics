@@ -1,34 +1,11 @@
 # Apa yang dipelajari di Statistika ?
 
-### TIME SERIES
-- Analisis Deret Waktu
-1. ARIMA
-2. SARIMA 
-- Analisis Deret Waktu Non Linier
-1. GARCH
-2. E-GARCH
-3. T-GARCH
-4. STAR
-- Metode Pemulusan
-1. Single Exponential Smoothing
-2. Doubel Exponential Smoothing
-3. Holt Winter
-4. Metode Dekomposisi
-- Metode Peramalan
-1. Spectral
-2. Fungsi Transfer
-3. Analisis Intervensi
-4. VAR
-5. ECM
-6. VECM
-- Model Logika Fuzzy
-1. Fuzzy Linear Regression
-
 ### FUNDAMENTAL
 - Himpunan & Logika
 - Teori Peluang
 - Matriks & Ruang Vektor
 - Proses Stokastik
+- Kalkulus
 
 ### RESEARCH
 - Teknik Sampling & Survey
@@ -66,6 +43,30 @@
 7. Structural Equational Modelling (SEM)
 8. Analisis Konjoin
 9. Partial Least Square (PLS)
+
+### TIME SERIES
+- Analisis Deret Waktu
+1. ARIMA
+2. SARIMA 
+- Analisis Deret Waktu Non Linier
+1. GARCH
+2. E-GARCH
+3. T-GARCH
+4. STAR
+- Metode Pemulusan
+1. Single Exponential Smoothing
+2. Doubel Exponential Smoothing
+3. Holt Winter
+4. Metode Dekomposisi
+- Metode Peramalan
+1. Spectral
+2. Fungsi Transfer
+3. Analisis Intervensi
+4. VAR
+5. ECM
+6. VECM
+- Model Logika Fuzzy
+1. Fuzzy Linear Regression
 
 ### KOMPUTASI
 - Teori Optimasi
