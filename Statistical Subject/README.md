@@ -45,28 +45,29 @@
 9. Partial Least Square (PLS)
 
 ### TIME SERIES
-- Analisis Deret Waktu
+- Univariate Time Series
 1. ARIMA
 2. SARIMA 
-- Analisis Deret Waktu Non Linier
-1. GARCH
-2. E-GARCH
-3. T-GARCH
-4. STAR
-- Metode Pemulusan
-1. Single Exponential Smoothing
-2. Doubel Exponential Smoothing
-3. Holt Winter
-4. Metode Dekomposisi
-- Metode Peramalan
+- Multivatiate Time Series
 1. Spectral
 2. Fungsi Transfer
 3. Analisis Intervensi
 4. VAR
 5. ECM
 6. VECM
+- Non Linier Time Series
+1. Generalized Autoregressive Conditional Heteroskedasticity (GARCH)
+2. E-GARCH
+3. T-GARCH
+4. Smooth Transition Autoregressive (STAR)
+- Non Parametric Time Series
+1. Single Exponential Smoothing
+2. Doubel Exponential Smoothing
+3. Holt Winter
+4. Metode Dekomposisi
 - Model Logika Fuzzy
 1. Fuzzy Linear Regression
+2. Fuzzy Time Series
 
 ### KOMPUTASI
 - Teori Optimasi
