@@ -7,7 +7,8 @@
 - Analisis Deret Waktu Non Linier
 1. GARCH
 2. E-GARCH
-3. STAR
+3. T-GARCH
+4. STAR
 - Metode Pemulusan
 1. Single Exponential Smoothing
 2. Doubel Exponential Smoothing
