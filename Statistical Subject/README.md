@@ -48,13 +48,13 @@
 - Univariate Time Series
 1. ARIMA
 2. SARIMA 
-- Multivatiate Time Series
+- Multivariate Time Series
 1. Spectral
 2. Fungsi Transfer
 3. Analisis Intervensi
-4. VAR
-5. ECM
-6. VECM
+4. VAR (Vecor Autoregresive)
+5. ECM (Error Correction Model)
+6. VECM (Vector Error Correction Model)
 - Non Linier Time Series
 1. Generalized Autoregressive Conditional Heteroskedasticity (GARCH)
 2. E-GARCH
