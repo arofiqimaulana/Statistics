@@ -1,19 +1,27 @@
 # ANALISIS SURVIVAL
 
 ### Definisi
-analisis data yangberhubungan dengan waktu, mulai dari awal sampai terjadinya suatu peristiwa khusus (Colled, 2003). <br/>
+sering disebut analisis time to event, analisis data yang berhubungan dengan waktu, mulai dari awal penelitian sampai terjadinya suatu peristiwa khusus (Colled, 2003). <br/>
 
 Peristiwa khusus (failure event) tersebut dapat berupa kegagalan, kematian, kambuh atau sembuhnya dari suatu penyakit, respon dari suatu percobaan, atau peristiwa lain yang dipilih sesuai dengan kepentingan peneliti. <br/>
 
 ### Waktu Survival
 adalah periode amatan berupa interval waktu antara permulaan pengamatan hingga terjadinya kejadian yang diamati.
 
-### Sensor 
-Data dikatakan tersensor apabila data tidak dapat diamati secara lengkap karena subjek penelitian hilang atau mengundurkan diri atau sampai akhir penelitian subjek tersebut belum mengalami kejadian tertentu. Penyebabnya adalah <br/>
+### Fungsi Survival (S(t))
+adalah peluang bahwa suatu objek/pasien akan survive dalam rentang waktu yang diberikan.
 
-1. Pada saat studi berakhir subjek belum mengalami kegagalan. 
-2. Subjek mengundurkan diri dari penelitian dan tidak dapat diamati lebih lanjut (lost to follow-up; withdrawal). 
-3. Subjek mengalami kegagalan lain yang menyebabkan pengamatan tidak dapat diteruskan (competing risk). 
+### Fungsi Hazard (h(t))
+adalah laju kegagalan sesaat pada waktu t dengan syarat bahwa individu tersebut mampu bertahan sampai t. Fungsi hazard bisa berdistribusi konstan (uniform), Weibull, maupun lognormal.
+
+### Log Rank Test
+Digunakan untuk menguji apakah dua grup (misal gender) terdapat perbedaan survive yang signifikan.
+
+### Kurva Kaplan Meiyer
+adalah kurva yang menggambarkan banyaknya failure di setiap titik-titk waktu pengamatan.
+
+### Sensor 
+Data dikatakan tersensor apabila data tidak dapat diamati secara lengkap karena subjek penelitian hilang atau mengundurkan diri atau sampai akhir penelitian subjek tersebut belum mengalami kejadian tertentu.<br/>
 
 Tiga jenis tipe sensoring adalah <br/>
 1. Sensor Kanan <br/>
