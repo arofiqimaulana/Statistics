@@ -109,6 +109,4 @@ Berdasarkan butuh atau tidaknya asumsi, teknik analisis data dapat dibagi menjad
 - Analisis Reliabilitas
 - Riset Operasi
 
-
-
 ![](images/StatisticalMethod.png)
