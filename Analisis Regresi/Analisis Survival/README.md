@@ -26,16 +26,18 @@ Data dikatakan tersensor apabila data tidak dapat diamati secara lengkap karena 
 Tiga jenis tipe sensoring adalah <br/>
 1. Sensor Kanan <br/>
 Sensor yang terjadi dikarenakan objek pengamatan belum mengalami kejadian hingga akhir periode pengamatan, sedangkan waktu awal dari objek pengamatan dapat diamati secara penuh.\
+
 Misalkan suatu individu diamati selama lima tahun dari awal pengamatan, kemudian pada tahun ketiga individu tersebut pindah ke negara lain dan tidak dapat diamati lagi (lost to follow up).<br/>
 
 2. Sensor Kiri <br/>
 Sensor yang terjadi dikarenakan waktu awal dari subjek pengamatan tidak dapat teramati pada awal pengamatan, sementara kegagalan dapat diamati secara penuh sebelum penelitian berakhir. \
+
 Sebagai contoh, peneliti mengamati pasien penyakit kanker, peneliti dapat mencatat kejadian tepatnya seseorang tersebut positif kanker di tes pertamanya, namun peneliti tidak memiliki catatan tentang waktu tepatnya seseorang tersebut mulai berpenyakit kanker. 
 
 3. Sensor Interval <br/>
-
 Sensor interval adalah sensor yang waktu survivalnya berada dalam suatu selang tertentu. \
 Subjek disebut tersensor-kiri (left-censored) jika kegagalan telah terjadi sebelum subjek memasuki studi, tetapi tidak diketahui secara tepat saat terjadinya. \
+
 Sebagai contohnya, jika catatan medis menunjukkan bahwa pada usia 45 tahun pasien kanker dalam contoh di atas kondisinya sehat dan belum berpenyakit kanker, kemudian pasien melakukan tes pertama saat berumur 50 tahun dan terdiagnosis terkena penyakit kanker, dengan demikian usia saat didiagnosis positif kanker adalah antara 45 dan 50 tahun.
 
 ### Truncate
