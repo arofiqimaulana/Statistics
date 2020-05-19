@@ -17,7 +17,7 @@ Case.id: id dari data NAFLD  <br/>
 Futime: waktu ke kejadian kematian atau followpu terakhir  <br/>
 Status:  0 = hidup, 1= dead. (0=tersensor)
 
-```{r echo=TRUE}
+```{r}
 ## Load Package
 library(survival)
 library(survminer)
@@ -25,7 +25,7 @@ library(concordance)
 options(scipen=999)
 ```
 
-```{r echo=TRUE}
+```{r}
 ## Load data
 data(nafld)
 head(nafld1)
@@ -35,7 +35,7 @@ head(df)
 
 ### Kurva Kaplan Meyer
 Kurva kaplan meyer menggambarkan banyaknya kematian di setiap titik-titik waktu.Berikut merupakan cara membuat tabel kaplan meyer secara mandiri manual.
-```{r echo=TRUE}
+```{r}
 ### Tabel Kaplan Meyer
 fit <- survfit(Surv(futime, status)~1, data = df)
 surv_table <- data.frame(time=fit$time,
@@ -46,7 +46,7 @@ surv_table <- data.frame(time=fit$time,
 surv_table
 ```
 
-```{r echo=TRUE}
+```{r}
 ### Kurva Kaplan Meyer
 plot(x=surv_table$time,
      y=surv_table$sur_prob,
@@ -56,7 +56,7 @@ plot(x=surv_table$time,
 ```
 
 
-```{r echo=TRUE}
+```{r}
 ### Kurva Kaplan meyer
 ggsurvplot(fit,
            ggtheme = theme_bw(),
@@ -70,7 +70,7 @@ ggsurvplot(fit,
 ### Kurva Kaplan Meyer (breakdown berdasarkan data kategori)
 Kurva kaplan meyer juga bisa membandingkan apakah terdapat perbedaan survival antara dua kelas. Contohnya gender, apakah terdapat perbedaan survival antara perempuan dan laki-laki.
 
-```{r echo=TRUE}
+```{r}
 fit2 <- survfit(Surv(futime, status)~male, data = df)
 ggsurvplot(fit2,
            pval = TRUE,
@@ -79,7 +79,7 @@ ggsurvplot(fit2,
            legend="left",
            legend.labs = c("Male", "Female"),
            xlab = "Time in Days") +
-  ggtitle("Kaplan Meier Curve Lung Dataset")
+  ggtitle("Kaplan Meier Curve nafld Dataset")
 ```
 
 Karena pvalue = 0.00078 < 0.05 maka dapat dikatakan bahwa terdapat perbedaan waktu kejadian kematian perrempuan dan laki-laki.
@@ -87,7 +87,7 @@ Karena pvalue = 0.00078 < 0.05 maka dapat dikatakan bahwa terdapat perbedaan wak
 
 ### Model Cox Proportional Hazard
 Merupakan model regresi yang digunakan untuk mengidentifikasi hubungan antara waktu survival dan satu atau lebih variabel prediktor.
-```{r echo=TRUE}
+```{r}
 options(scipen=999)
 df$male <- as.factor(df$male) # convert to dummy variable
 model_coxph <- coxph (Surv(futime, status) ~ age + male + weight +  height +
@@ -101,7 +101,7 @@ Jika pvalue < 0.05 maka dapat dikatakan bahwa variabel tersebut mempengaruhi wak
 ### Survival Model Regresion
 Model Coxph merupakan semi-parametrik model, artinya variabel waktu survival tidak diasumsikan berdistribusi tertentu. Sedangkan suvreg adalah model parametrik yang mengasumsikan bahwa waktu survival mengikuti distribusi tertentu.
 
-```{r echo=TRUE}
+```{r}
 options(scipen=999)
 df$male <- as.factor(df$male) # convert to dummy variable
 model_exp <- survreg(Surv(futime, status) ~ age + male + weight +  height +
@@ -115,13 +115,13 @@ Jika pvalue < 0.05 maka dapat dikatakan bahwa variabel tersebut mempengaruhi wak
 ### Concordance
 merupakan suatu metrik untuk mengevaluasi prediksi. Concordance berkisar antara 0 dan 1. Jika Concordance = 0 maka prediksi salah semua, sedangkan Concordance = 1 maka prediksi sangat tepat. 
 
-```{r echo=TRUE}
+```{r}
 concordance(model_coxph)
 ```
 Karena nilai concordance = 0.8281 (mendekati 1) maka dapat dikatakan bahwa pediksi cukup bagus (ketepatan prediksi sebesar 82%).
 
 
-```{r echo=TRUE}
+```{r}
 concordance(model_exp)
 ```
 
