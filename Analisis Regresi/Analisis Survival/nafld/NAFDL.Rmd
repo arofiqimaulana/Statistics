@@ -1,0 +1,128 @@
+---
+title: "Analisis Data nafld menggunakan Analisis Survival"
+output: html_notebook
+---
+### Deskripsi Data
+Data nafld1 merupakan data yang berisi data dari studi populasi penyakit hati berlemak non-alkohol (NAFLD). Subjek dengan kondisi dan serangkaian subjek kontrol yang cocok diikuti ke depan untuk kondisi metabolik, titik akhir jantung, dan kematian.
+
+Variabel yang digunakan dalam analisis ini adalah
+
+id: id subjek <br/>
+Age: umur  <br/>
+Male:  0= perempuan, 1= laki-laki  <br/>
+Weight: berat badan  <br/>
+Height: tinggi badan  <br/>
+Bmi: index massa tubuh  <br/>
+Case.id: id dari data NAFLD  <br/>
+Futime: waktu ke kejadian kematian atau followpu terakhir  <br/>
+Status:  0 = hidup, 1= dead. (0=tersensor)
+
+```{r echo=TRUE}
+## Load Package
+library(survival)
+library(survminer)
+library(concordance)
+options(scipen=999)
+```
+
+```{r echo=TRUE}
+## Load data
+data(nafld)
+head(nafld1)
+df = nafld1
+head(df)
+```
+
+### Kurva Kaplan Meyer
+Kurva kaplan meyer menggambarkan banyaknya kematian di setiap titik-titik waktu.Berikut merupakan cara membuat tabel kaplan meyer secara mandiri manual.
+```{r echo=TRUE}
+### Tabel Kaplan Meyer
+fit <- survfit(Surv(futime, status)~1, data = df)
+surv_table <- data.frame(time=fit$time,
+                         n_risk=fit$n.risk,
+                         n_event=fit$n.event,
+                         n_censor=fit$n.censor,
+                         sur_prob=fit$surv)
+surv_table
+```
+
+```{r echo=TRUE}
+### Kurva Kaplan Meyer
+plot(x=surv_table$time,
+     y=surv_table$sur_prob,
+     type="l", 
+     ylab="survival probability",
+     xlab="time")
+```
+
+
+```{r echo=TRUE}
+### Kurva Kaplan meyer
+ggsurvplot(fit,
+           ggtheme = theme_bw(),
+           palette="blue",
+           legend="none",
+           xlab = "Time in Days") +
+  ggtitle("Kaplan Meier Curve nafld")
+```
+
+
+### Kurva Kaplan Meyer (breakdown berdasarkan data kategori)
+Kurva kaplan meyer juga bisa membandingkan apakah terdapat perbedaan survival antara dua kelas. Contohnya gender, apakah terdapat perbedaan survival antara perempuan dan laki-laki.
+
+```{r echo=TRUE}
+fit2 <- survfit(Surv(futime, status)~male, data = df)
+ggsurvplot(fit2,
+           pval = TRUE,
+           ggtheme = theme_bw(),
+           palette = c("red","blue"),
+           legend="left",
+           legend.labs = c("Male", "Female"),
+           xlab = "Time in Days") +
+  ggtitle("Kaplan Meier Curve Lung Dataset")
+```
+
+Karena pvalue = 0.00078 < 0.05 maka dapat dikatakan bahwa terdapat perbedaan waktu kejadian kematian perrempuan dan laki-laki.
+
+
+### Model Cox Proportional Hazard
+Merupakan model regresi yang digunakan untuk mengidentifikasi hubungan antara waktu survival dan satu atau lebih variabel prediktor.
+```{r echo=TRUE}
+options(scipen=999)
+df$male <- as.factor(df$male) # convert to dummy variable
+model_coxph <- coxph (Surv(futime, status) ~ age + male + weight +  height +
+                       bmi,data=df)
+
+summary(model_coxph)
+```
+
+Jika pvalue < 0.05 maka dapat dikatakan bahwa variabel tersebut mempengaruhi waktu survival. Sehingga variabel yang mempenagaruhi adalah umur dan jenis kelamin.
+
+### Survival Model Regresion
+Model Coxph merupakan semi-parametrik model, artinya variabel waktu survival tidak diasumsikan berdistribusi tertentu. Sedangkan suvreg adalah model parametrik yang mengasumsikan bahwa waktu survival mengikuti distribusi tertentu.
+
+```{r echo=TRUE}
+options(scipen=999)
+df$male <- as.factor(df$male) # convert to dummy variable
+model_exp <- survreg(Surv(futime, status) ~ age + male + weight +  height +
+                        bmi,dist="exponential",data=df)
+
+summary(model_exp)
+```
+
+Jika pvalue < 0.05 maka dapat dikatakan bahwa variabel tersebut mempengaruhi waktu survival. Sehingga variabel yang mempenagaruhi adalah umur dan jenis kelamin. Dapat dikatakan bahwa model tersebut menghasilkan keputussan yang sama.
+
+### Concordance
+merupakan suatu metrik untuk mengevaluasi prediksi. Concordance berkisar antara 0 dan 1. Jika Concordance = 0 maka prediksi salah semua, sedangkan Concordance = 1 maka prediksi sangat tepat. 
+
+```{r echo=TRUE}
+concordance(model_coxph)
+```
+Karena nilai concordance = 0.8281 (mendekati 1) maka dapat dikatakan bahwa pediksi cukup bagus (ketepatan prediksi sebesar 82%).
+
+
+```{r echo=TRUE}
+concordance(model_exp)
+```
+
+Karena nilai concordance = 0.8281 (mendekati 1) maka dapat dikatakan bahwa pediksi cukup bagus (ketepatan prediksi sebesar 82%).
