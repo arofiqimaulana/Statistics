@@ -1,0 +1,48 @@
+*Import data;
+proc import out=work.Outlier datafile='D:\BANK DATA\DATABASE\OUTLIER\IKK.xlsx' 
+dbms=xlsx replace;
+sheet='sheet1';
+getnames=yes;
+run;
+*Print data;
+proc print data=Outlier;
+run;
+*plot data time series;
+proc gplot data=Outlier;
+symbol1 i=splines v=dot;
+plot IKK*Date ;
+run;
+*manipulasi data;
+data Outlier;
+set Outlier;
+z=0;
+tx=IKK**0.75;
+run;
+*Stasioneritas ragam;
+*transformasi box cox;
+proc transreg maxiter=0 nozeroconstant;
+      model BoxCox(IKK) = identity(z);
+      output;
+run;
+*Stasioneritas rata-rata;
+proc arima data=Outlier;
+identify var=tx nlag=40 stationarity=(adf);
+run;
+*ARIMA OUTLIER;
+proc arima data=Outlier;
+run;
+*Pembentukan model ARIMA;
+identify var=tx(1) nlags=25;
+run;
+estimate p=(0) q=(3) noconstant method=ml;
+*Deteksi Outlier;
+outlier alpha=0.05 maxnum=10;
+run;
+*Ramalan;
+forecast out=ramalan lead=12;
+run;
+proc univariate normaltest;
+var residual;
+run;
+
+

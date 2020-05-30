@@ -1,0 +1,59 @@
+*Import data;
+proc import out=work.arimax datafile='D:\BANK DATA\DATABASE\iklan-penjualan.xlsx' 
+dbms=xlsx replace;
+sheet='sheet1';
+getnames=yes;
+run;
+*Print data;
+proc print data=arimax;
+run;
+*plot data time series;
+proc gplot data=arimax;
+symbol1 i=splines v=dot;
+plot Iklan*date;
+plot Penjualan*date;
+run;
+*plot data time series;
+proc gplot data=arimax;
+symbol1 i=splines v=dot;
+plot Iklan*date Penjualan*date / overlay ;
+label Iklan='Iklan-Penjualan'
+      date='Bulan';
+title 'Pengeluaran iklan dan total penjualan Bulan Jan 2001-Maret 2003'; 
+run; 
+*manipulasi data;
+data arimax;
+set arimax;
+z=0;
+tx=iklan**0.75;
+ty=iklan**0.75;
+run;
+*Stasioneritas ragam;
+*transformasi box cox;
+proc transreg maxiter=0 nozeroconstant;
+      model BoxCox(iklan) = identity(z);
+      output;
+run;
+*Stasioneritas rata-rata;
+proc arima data=arimax;
+identify var=t_iklan nlag=40;
+run;
+*Pendugaan parameter ARIMAX
+proc arima data=arimax;
+run;
+identify var=Iklan nlag=24;
+run;
+estimate p=1 q=1 method=ml;
+run;
+identify var=Penjualan crosscorr=Iklan nlag=24;
+run;
+estimate p=0 q=0 input=(0 $(0)/(1)(2)Iklan) method=ml;
+run;
+forecast out=ramalan lead=12;
+run;
+proc univariate normaltest;
+var residual;
+run;
+
+
+
