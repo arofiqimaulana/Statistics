@@ -21,12 +21,12 @@ Artinya kesalahan pengukuran terjadi bukan karena pengaruh kesalahankesalahan pe
 7. Pada analisis regresi linier berganda, tidak boleh terdapat hubungan yang erat antar variabel prediktor (non multikolinieritas).
 
 Namun, dalam analisis regresi berganda biasanya pengujian hanya dilakukan terhadap empat asumsi saja yaitu 
-1. Normalitas sisaan 
+1. Normalitas sisaan <br/>
 Sisaan harus berdistribusi normal. Teknik pengujian yang dapat dipakai adalah Kolomogorov-Smirnov dan Jarque-Bera.
-2. Non-multikolinieritas
+2. Non-multikolinieritas <br/>
 Tidak boleh terjadi hubungan antar variabel independen. Teknik pengujian yang dapat dipakai adalah VIF.
-3. Homogenanitas ragam sisaan
+3. Homogenanitas ragam sisaan <br/>
 Ragam sisaan harus konstan. Teknik pengujian yang dapat dipakai adalah Uji Breush Pagan, Ujin Park, Uji Glejser, dan Uji White.
-4. Non-autokorelasi
+4. Non-autokorelasi <br/>
 Tidak boleh terjadi korelasi antar sisaan. Teknik pengujian yang dapat dipakai adalah Uji Durbin Watson
 
