@@ -7,7 +7,7 @@ Analisis data deret waktu dapat digolongkan menjadi beberapa jenis yaitu
 2. Multivariate (menambahkan regresor)
 3. Non-Linier 
 
-Beberapa metode yang digunakan dalam analisis data deret waktu adalah
+Beberapa contoh metode yang dapat digunakan dalam analisis data deret waktu adalah
 1. ARIMA (Autoregressive Integrated Moving Average)
 2. Exponential Smoothing 
 3. GARCH
