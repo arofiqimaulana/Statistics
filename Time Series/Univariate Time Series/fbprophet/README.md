@@ -5,7 +5,8 @@ Metode ini juga memungkinan pengguna untuk tunning parameter sendiri berdasarkan
 
 
 ### Fit Model
-`model_prophet_2 = Prophet(growth= 'linear', 
+`
+model_prophet_2 = Prophet(growth= 'linear', 
                            seasonality_mode = 'additive',
                            changepoints= changepoints_df['ds'],
                            daily_seasonality= True,
