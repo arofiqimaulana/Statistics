@@ -5,7 +5,7 @@ Metode ini juga memungkinan pengguna untuk tunning parameter sendiri berdasarkan
 
 
 ### Fit Model
-model_prophet_2 = Prophet(growth= 'linear', 
+`model_prophet_2 = Prophet(growth= 'linear', 
                            seasonality_mode = 'additive',
                            changepoints= changepoints_df['ds'],
                            daily_seasonality= True,
@@ -31,7 +31,7 @@ model_prophet_2 = Prophet(growth= 'linear',
                                prior_scale=15
                            )
 model_prophet_2.fit(train_df2)
-
+`
 
 ## Source
 https://facebook.github.io/prophet/
