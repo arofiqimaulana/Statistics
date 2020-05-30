@@ -5,7 +5,7 @@ Metode ini juga memungkinan pengguna untuk tunning parameter sendiri berdasarkan
 
 
 ### Fit Model
-![](fit_model.png)
+![](fit_model.PNG)
 
 
 ### Source
