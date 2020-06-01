@@ -2,7 +2,14 @@
 
 Data cross section merupakan data yang dikumpulkan berdasarkan dimensi tempat atau individu. Contoh data ini seperti total penduduk di negara-negara asean, banyaknya kecelakaan di setiap kota di negara Indonesia. 
 
-Ada banyak sekali metode analisis data untuk jenis data ini (tergantung tujuan dan karakteristik data). Beberapa metode diantaranya adalah
+Ada banyak sekali metode analisis data untuk jenis data ini (tergantung tujuan dan karakteristik data). Kita dapat menggolongkan analisis data tipe ini menjadi beberapa golongan besar. Golongan-golongan tersebut seperti 
+1. Analisis Data Multivariat
+2. Biometrika
+3. Teknik Sampling dan Survey
+4. Data Mining
+5. Machine Learning
+
+Beberapa metode diantaranya adalah
 1. Analisis Regresi Berganda (OLS)
 2. Clustering
 3. Analisis Regresi Logistik
