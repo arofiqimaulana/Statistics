@@ -8,6 +8,8 @@ Ada banyak sekali metode analisis data untuk jenis data ini (tergantung tujuan d
 3. Teknik Sampling dan Survey
 4. Data Mining
 5. Machine Learning
+6. Analisis Data Kategori
+7. Analisis Regresi Berganda
 
 Beberapa metode diantaranya adalah
 1. Analisis Regresi Berganda (OLS)
