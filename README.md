@@ -2,7 +2,7 @@
 
 Karl Pearson menyatakan bahwa “Statistics is the Grammar of Science”. Seringkali istilah statistika dan statistik sering disamakan, padahal mereka berbeda. Statistika merujuk kepada cabang ilmu, sedangkan statistik lebih merujuk kepada suatu data atau informasi.
 
-Menurut Supranto, statistika adalah suatu cabang ilmu yang mempelajari tentang cara pengumpulan, penyajian, menganalisis data serta mengambil kesimpulan secara umum berdasarkan hasil penelitian menyeluruh yang telah dilakukan.
+Menurut Supranto, statistika adalah suatu cabang ilmu yang mempelajari tentang cara mengumpulkan, menyajikan, menganalisis data serta mengambil kesimpulan secara umum berdasarkan hasil penelitian menyeluruh yang telah dilakukan.
 
 ### CABANG STATISTIKA
 
