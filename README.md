@@ -102,6 +102,7 @@ Berdasarkan butuh atau tidaknya asumsi, teknik analisis data dapat dibagi menjad
 - Teori Keputusan
 - Metode Simulasi
 - Model Syaraf Tiruan
+- Logika Fuzzy
 
 ### OTHER
 - Aktuaria
