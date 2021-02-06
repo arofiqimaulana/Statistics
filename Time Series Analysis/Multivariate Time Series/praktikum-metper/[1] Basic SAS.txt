@@ -1,0 +1,159 @@
+*************************************************************************
+*****************************PROSES INPUT DATA****************************
+**************************************************************************
+*import file excel ke SAS;
+proc import out=work.Praktikum datafile = 'D:\SOURCE CODE\SAS\Inflasi.xlsx' 
+dbms=xlsx replace;
+sheet='Sheet1';
+getnames=yes;
+run;
+*Menampilkan data di SAS ;
+proc print data = Praktikum;
+run;
+*Membuat dataset/variabel baru;
+data Praktikum;
+set Praktikum;
+dcpi=dif(CPI);
+dm1=dif(M1);
+dikk=dif(IKK);
+run;
+
+*************************************************************************
+*****************************ARIMA NON MUSIMAN***************************
+*************************************************************************
+*Statistika Deskriptif;
+proc means data = praktikum;
+var CPI M1 IKK;
+run;
+*Regresi Linier Berganda;
+proc reg data = praktikum;
+model CPI = M1 IKK / dw vif ;
+run;
+*Transformasi Box Cox
+proc import out=work.coba datafile = 'D:\SOURCE CODE\SAS\prakt.xlsx' 
+dbms=xlsx replace;
+sheet='Sheet1';
+getnames=yes;
+run;
+proc print data=coba;
+run;
+data coba;
+set coba;
+z=0;
+y=IHSG;
+ty=exp(0.25*log(y));
+run;
+proc print data=coba;
+run;
+proc transreg maxiter=0 nozeroconstant;
+      model BoxCox(y) = identity(z);
+      output;
+run;
+   
+*Plot time series;
+proc gplot data = praktikum;
+plot CPI * Date;
+run;
+*Identifikasi model arima;
+proc arima data = praktikum;
+identify var=CPI nlag=30 stationarity=(adf);
+run;
+*Identifikasi model arima;
+proc arima data = praktikum;
+identify var=CPI(1) nlag=25 stationarity=(adf);
+run;
+*Pendugaan parameter ARIMA;
+proc arima data = praktikum;
+identify var=CPI(1) nlag=25;
+estimate p=1 q=0 noconstant method=ML;
+forecast lead=2 interval=month id=date out=results;
+run;
+*Plot data;
+proc gplot data = praktikum;
+plot CPI(1) * Date;
+run;
+
+*************************************************************************
+*****************************ARIMA MUSIMAN*******************************
+*************************************************************************
+*Import data;
+proc import out=work.passanger datafile = 'D:\SOURCE CODE\SAS\Inflasi.xlsx' 
+dbms=xlsx replace;
+sheet='Sheet2';
+getnames=yes;
+run;
+*Identifikasi model arima musiman;
+proc arima data = passanger;
+identify var=Passanger stationarity=(adf);
+run;
+
+*************************************************************************
+*****************************MODEL REGRESI TIDAK WHITE NOISE**************
+*************************************************************************
+*autokorelasi residual;
+proc autoreg data=praktikum;
+model cpi = m1 ikk / nlag=20;
+run;
+*korelasi silang (CCF);
+proc arima data = praktikum;
+identify var = cpi(1) crosscor = (m1(1) ikk(1));
+estimate input=(m1 ikk) plot method=ML;
+run;
+
+*************************************************************************
+*****************************MODEL VARIMAX*******************************
+*************************************************************************
+*Import data;
+proc import out=work.Praktikum datafile = 'D:\SOURCE CODE\SAS\Inflasi.xlsx' 
+dbms=xlsx replace;
+sheet='Sheet1';
+getnames=yes;
+run;
+*Transformasi log tiap peubah;
+data Praktikum;
+set Praktikum;
+lcpi = log(cpi);
+lm1 = log(m1);
+likk = log(ikk);
+label lcpi='log(Consumer Price Index)'
+            lm1='log(per capita disposable income)'
+            likk='log(indeks kesejahteraan)';
+run;
+*Plot data;
+proc gplot data = praktikum ;
+       plot lcpi * date / cframe = ligr vaxis = axis1 haxis = axis2 ;
+       title 'Log of Consumer Price Index' ;
+       symbol c = blue i = join v = star ;
+       axis1 label = (angle=90 'log(Consumer Price Index)') ;
+       axis2 label = ('Month') ;
+run ;
+*Perintah VARIMAX;
+proc varmax data = praktikum;
+  id date interval = month;
+  model cpi m1 ikk / p=1 print=(parcoef pcorr pcancorr) lagmax=6;
+run;
+*Uji kausalitas Cranger;
+proc varmax data=praktikum;
+      id date interval=month;
+      model lcpi lm1 likk / p=1;
+      causal group1=(lcpi) group2=(lm1 likk);
+ run;
+*Fit the VARX(1,1) model;
+proc varmax data=praktikum;
+      id date interval=month;
+      model lm1 likk = lcpi / p=1 xlag=1;
+run;
+*Fit the VARX(1,1) model with parameter restriction; 
+proc varmax data=praktikum;
+      id date interval=month;
+      model  lm1 likk = lcpi / p=1 xlag=1;
+      restrict XL(0,1,1) = 0 XL(1,2,1)=0;
+      output out=forecasts lead=6;
+run;
+
+
+
+   
+
+
+
