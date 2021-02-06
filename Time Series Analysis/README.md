@@ -21,3 +21,6 @@ Beberapa contoh metode yang dapat digunakan dalam analisis data deret waktu adal
 ![](images/classify.png)
 
 # Flowchart
+![](images/arima_flowchart.png)
+
+
