@@ -17,10 +17,15 @@ Beberapa contoh metode yang dapat digunakan dalam analisis data deret waktu adal
 7. Holt Winter
 8. Fuzzy 
 
+Tahapan dalam forecasting menurut Box & Jenkins (1976) adalah
+1. model specification (or identification) -> looking at the data using time series plot, trend, seasonal, related with other field.
+2. model fitting -> estimating parameters using MLE, OLS
+3. model diagnostics ->  assessing the quality of the model using ACF Residual, AIC, MSE
+
 # Taksonomi
 ![](images/classify.png)
 
-# Flowchart (ARIMA)
-![](images/arimaFlowchart.png)
+# Forecasting Steps
+![](images/flow.png)
 
 
