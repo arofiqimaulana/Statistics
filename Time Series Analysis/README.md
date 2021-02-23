@@ -20,7 +20,7 @@ Beberapa contoh metode yang dapat digunakan dalam analisis data deret waktu adal
 # Taksonomi
 ![](images/classify.png)
 
-# Flowchart
+# Flowchart (ARIMA)
 ![](images/arimaFlowchart.png)
 
 
