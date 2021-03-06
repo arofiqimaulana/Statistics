@@ -49,7 +49,38 @@ Analyst making forecasts often have extensive domain knowledge about the quantit
 
 
 ### Fit Model
-![](images/fit_model.PNG)
+
+```
+## Fitting model
+from fbprophet import Prophet
+model = Prophet(growth= 'linear', 
+                           seasonality_mode = 'additive',
+                           #changepoints= changepoints_df['ds'],
+                           daily_seasonality= True,
+                           weekly_seasonality= True,
+                           yearly_seasonality= True).add_seasonality(
+                               name='monthly',
+                               period=30.5,
+                               fourier_order=15,
+                               prior_scale=15
+                           ).add_seasonality(
+                               name='weekly',
+                               period=7,
+                               fourier_order=10,
+                               prior_scale=20
+                           ).add_seasonality(
+                               name='yearly',
+                               period=365.25,
+                               fourier_order=20
+                           ).add_seasonality(
+                               name='quarterly',
+                               period=365.25/4,
+                               fourier_order=5,
+                               prior_scale=15
+                           )
+model.fit(train_df)
+```
+
 
 
 ### Source
