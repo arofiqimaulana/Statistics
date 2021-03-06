@@ -10,13 +10,7 @@ Forecasting merupakan salah satu algoritma data science yang membantu suatu orga
 
 Oleh karena itu diciptakanlah **fbprophet** agar analyst yang tidak ahli time series bisa menggunakannya dan bisa disesuaikan parameternya berdasarkan pengetahuan domain expertisenya. 
 
-## Konsep Dasar
-
-fbprophet merupakan salah satu alat forecasting yang dikembangkan oleh facebook. Metode ini membantu Facebook untuk planning dan goal setting. Konsep dasar dari metode ini dengan cara mem-breakdown time series data berdasarkan komponen additive/multiplikatif, trend, musiman harian/bulanan/tahunan, dan efek liburan.
-
-Metode ini juga memungkinan pengguna untuk tunning parameter sendiri berdasarkan domain knowledge yang dimiliki. fbprophet ini sangat kuat digunakan terhadap data deret waktu yang memiliki efek musiman, dan robust terhadap missing value, shifts in the trend maupun outlier.
-
-## Perbandingan fbprophet dengan metode lainnya
+## Other method
 Metode yang dibuat perbandingan dengan fbprophet adalah
 1. ARIMA (Autoregresive Integrated Moving Average) -> menggunanakan auto.arima
 2. Exponential Smoothing -> menggunakan ets
@@ -59,6 +53,6 @@ Analyst making forecasts often have extensive domain knowledge about the quantit
 
 
 ### Source
-[1] https://facebook.github.io/prophet/
-[2] https://doi.org/10.7287/peerj.preprints.3190v2
+1. https://facebook.github.io/prophet/
+2. https://doi.org/10.7287/peerj.preprints.3190v2
 
