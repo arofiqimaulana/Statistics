@@ -11,7 +11,7 @@ Forecasting merupakan salah satu algoritma data science yang membantu suatu orga
 Oleh karena itu diciptakanlah **fbprophet** agar analyst yang tidak ahli time series bisa menggunakannya dan bisa disesuaikan parameternya berdasarkan pengetahuan domain expertisenya. 
 
 ## Other method
-Metode yang dibuat perbandingan dengan fbprophet adalah
+Beberapa metode yang dibuat perbandingan dengan fbprophet adalah
 1. ARIMA (Autoregresive Integrated Moving Average) -> menggunanakan auto.arima
 2. Exponential Smoothing -> menggunakan ets
 3. Seasonal Naive -> menggunakan snaive
@@ -36,7 +36,7 @@ assumption : e(t) berdistribusi normal
 
 ## Formula setiap komponen
 
-![](images/formula_per_component.PNG)
+![](images/formula_per_component.png)
 
 
 ## Tuning parameter by Analyst
