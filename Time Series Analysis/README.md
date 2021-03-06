@@ -2,6 +2,10 @@
 
 Data time series adalah data yang dikumpulkan dari waktu ke waktu. Suatu data mungkin dikumpulkan dalam bentuk berbagai dimensi waktu seperti jam, harian, mingguan, bulanan, dan tahunan. Kadangkala kita punya ketertarikan untuk menganalisis data deret dan membuat ramalan terhadap beberapa periode ke depan.
 
+```
+Forecasting is a common data science task that helps organizations with capacity planning, goal setting, and anomaly detection. 
+```
+
 Analisis data deret waktu dapat digolongkan menjadi beberapa jenis yaitu
 1. Univariate (tidak ada regresor)
 2. Multivariate (menambahkan regresor)
