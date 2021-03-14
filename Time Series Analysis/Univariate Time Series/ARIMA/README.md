@@ -7,12 +7,11 @@ Model ARIMA dibagi dalam 3 unsur yaitu: model autoregressive (AR), moving averag
 
 ## Model ARIMA
 
-![](images/arimapiq.png)
+![](images/arimapiq.PNG)
 
 Model ARIMA(p,d,q) adalah
 
-![](images/armapq.png)
-
+![](images/armapq.PNG)
 
 # Flowchart (ARIMA)
 ![](images/arimaFlowchart.png)
