@@ -33,3 +33,9 @@ Tahapan dalam forecasting menurut Box & Jenkins (1976) adalah
 ![](images/flow.png)
 
 
+## Refference
+1. https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc444.htm
+2. https://homepage.univie.ac.at/robert.kunst/prognos3.pdf
+3. https://www.stat.ipb.ac.id/en/uploads/RA/Time%20series/Kuliah%206%20-%20Metode%20Pemulusan%20Winter%20(Multiplikatif).pdf
+4. https://otexts.com/fpp2/moving-averages.html
+5. http://halweb.uc3m.es/esp/Personal/personas/jtena/eng/teaching_files/DOCTO6.pdf
