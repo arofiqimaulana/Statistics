@@ -1,0 +1,122 @@
+---
+title: "Survival Analysis for data nafld"
+author: "ARofiqi Maulana"
+date: "1/9/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Load Package
+```{r package}
+library(survival)
+library(ggplot2)
+library(ggpubr)
+library(survminer)
+library(concordance)
+options(scipen=999)
+```
+
+## 2. Load Data
+
+```{r view data}
+
+data(nafld)
+head(nafld1)
+head(nafld2)
+head(nafld3)
+df = nafld1
+head(df)
+```
+
+## 3. Survival Plot
+### 3.1 Membuat Survive Table
+Variabel tersensor adalah status. status bernilai 0 artinya dia tersensor.
+
+```{r surv_table}
+fit <- survfit(Surv(futime, status)~1, data = df)
+surv_table <- data.frame(time=fit$time,
+                         n_risk=fit$n.risk,
+                         n_event=fit$n.event,
+                         n_censor=fit$n.censor,
+                         sur_prob=fit$surv)
+head(surv_table)
+```
+
+### 3.2 Membuat Kurva Survival
+Kurva yang menunjukkan peluang survive di setiap waktunya. Berdasarkan Grafik di bawah ini, dapat dikatakan bahwa peluang survive penderita penyakit paru-paru menurun seiring waktu berjalan.
+
+```{r plot survival}
+plot(x=surv_table$time,
+     y=surv_table$sur_prob,
+     type="l", 
+     ylab="survival probability",
+     xlab="time")
+```
+
+## 4. Kurva Kaplan Meyer
+Jika variabel yang diteliti bertipe kategori, maka digunakan kurva kaplan Meyer. Fungsinya untuk mengetahui apakah terdapat perbedaan survival diantara kategori tersebut. Dalam penelitian ini, ingin diketahui apakah penyakit paru-paru tergantung dari jenis kelaminnya.
+
+```{r ggplot survival}
+ggsurvplot(fit,
+           surv.median.line = "hv",
+           ggtheme = theme_bw(),
+           palette="blue",
+           legend="none",
+           xlab = "Time in Days") +
+ggtitle("Kaplan Meier Curve nafld")
+```
+
+```{r perbandingan 2 kategori}
+fit2 <- survfit(Surv(futime,status)~male,data=df)
+surv_table <- data.frame(time=fit2$time,
+                         n_risk=fit2$n.risk,
+                         n_event = fit2$n.event,
+                         n_censor = fit2$n.censor,
+                         sur_prob=fit2$surv)
+head(surv_table)
+```
+
+```{r predict fit}
+fit2 <- survfit(Surv(futime, status)~male, data = df)
+
+ggsurvplot(fit2,
+           pval = TRUE,
+           surv.median.line = "hv",
+           ggtheme = theme_bw(),
+           palette = c("red","blue"),
+           legend="left",
+           legend.labs = c("Male", "Female"),
+           xlab = "Time in Days") +
+  ggtitle("Kaplan Meier Curve Lung Dataset")
+```
+
+## 5. Regresi Cox Proportional Hazard
+Jika kaplan meyer hanya untuk variabel kategorik, maka model regresi cox proportional hazard bisa dari variabel numerik maupun kategorik (Lauaknya regresi linier berganda.).
+
+```{r cox hazard}
+options(scipen=999)
+df$male <- as.factor(df$male) # convert to dummy variable
+model_coxph <- coxph (Surv(futime, status) ~ age + male + weight +  height +
+                        bmi,data=df)
+
+summary(model_coxph)
+```
+## 6. Model Survival Dengan Disribusi Exponensial
+```{r surv_exp}
+options(scipen=999)
+df$male <- as.factor(df$male) # convert to dummy variable
+model_exp <- survreg(Surv(futime, status) ~ age + male + weight +  height +
+                       bmi,dist="exponential",data=df)
+
+summary(model_exp)
+```
+
+## 7. Metrik Evaluation
+```{r eval}
+concordance(model_coxph)
+concordance(model_exp)
+```
+
