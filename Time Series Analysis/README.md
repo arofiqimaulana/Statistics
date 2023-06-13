@@ -12,14 +12,15 @@ Analisis data deret waktu dapat digolongkan menjadi beberapa jenis yaitu
 3. Non-Linier 
 
 Beberapa contoh metode yang dapat digunakan dalam analisis data deret waktu adalah
-1. ARIMA (Autoregressive Integrated Moving Average)
-2. Exponential Smoothing 
+1. [ARIMA](https://github.com/arofiqimaulana/Statistics/tree/master/Time%20Series%20Analysis/Univariate%20Time%20Series/ARIMA)
+2. [Exponential Smoothing](https://github.com/arofiqimaulana/Statistics/tree/master/Time%20Series%20Analysis/Univariate%20Time%20Series/Exponential%20Smoothing)
 3. GARCH
 4. Dekomposisi
 5. VAR
 6. STAR (Space Time Autoregressive)
 7. Holt Winter
 8. Fuzzy 
+9. [fbprophet](https://github.com/arofiqimaulana/Statistics/tree/master/Time%20Series%20Analysis/Univariate%20Time%20Series/fbprophet)
 
 Tahapan dalam forecasting menurut Box & Jenkins (1976) adalah
 1. model specification (or identification) -> looking at the data using time series plot, trend, seasonal, related with other field.
