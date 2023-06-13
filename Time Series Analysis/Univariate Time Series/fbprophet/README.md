@@ -84,4 +84,5 @@ model.fit(train_df)
 ### Source
 1. https://facebook.github.io/prophet/
 2. https://doi.org/10.7287/peerj.preprints.3190v2
+3. https://arofiqimaulana.medium.com/ide-dibalik-fbprophet-acf27896eafc
 
