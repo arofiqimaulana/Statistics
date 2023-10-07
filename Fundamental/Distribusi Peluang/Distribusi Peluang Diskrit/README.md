@@ -8,7 +8,7 @@ $$ P(X=k) = p^k \cdot (1-p)^{1-k} \quad \text{untuk } k \in \{0,1\} $$
 
 dimana
 
-$$ p  = peluang keberhasilan $$
+$$ p  = \text{peluang keberhasilan} $$
 
 $$ E[X] = p $$ 
 
