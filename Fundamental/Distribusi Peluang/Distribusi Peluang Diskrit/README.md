@@ -6,12 +6,8 @@ Percobaan Bernouli menghasilkan dua kemungkinan hasil yaitu sukses dan gagal. Pe
 
 $$ P(X=k) = p^k \cdot (1-p)^{1-k} \quad \text{untuk } k \in \{0,1\} $$
 
-dimana
-
-$$ p = probabilitas keberhasilan $$
 $$ E[X] = p $$ 
 $$ \text{Var}[X] = p \cdot (1-p) $$
-
 
 ### 2. Distribusi Binomial
 ### 3. Distribusi Poisson
