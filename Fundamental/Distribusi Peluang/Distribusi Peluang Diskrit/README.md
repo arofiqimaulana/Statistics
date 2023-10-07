@@ -8,7 +8,9 @@ $$ P(X=k) = p^k \cdot (1-p)^{1-k} \quad \text{untuk } k \in \{0,1\} $$
 
 dimana
 
-$$ p  = \text{peluang keberhasilan} $$
+$$ p  = \text{peluang sukses} $$
+
+$$ k  = \text{banyaknya tindakan sukses} $$
 
 $$ E[X] = p $$ 
 
