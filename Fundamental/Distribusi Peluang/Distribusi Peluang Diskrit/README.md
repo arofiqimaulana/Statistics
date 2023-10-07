@@ -34,6 +34,69 @@ $$ E[X] = np $$
 $$ \text{Var}[X] = np(1-p) $$
 
 ### 3. Distribusi Poisson
+Percobaan Poisson menghasilkan **banyaknya sukses yang terjadi dalam suatu waktu atau wilayah tertentu**. Contohnya adalah banyaknya kendaraan yang melintas di jalan Soekarno-Hatta selama 1 jam. 
+
+Percobaan Poisson dapat dipandang sebagai percobaan Binomial jika n sangat besar. Fungsi peluang distribusi Poisson digambarkan sebagai
+
+$$ P(X=k) = \frac{{e^{-\lambda} \cdot \lambda^k}}{{k!}} $$
+
+dimana
+
+$$ λ : \text{rata-rata banyaknya kejadian sukses selama selang waktu atau wilayah tertentu} $$
+
+$$ k : \text{banyaknya kejadian sukses} $$
+
+$$ E[X] = \lambda $$
+
+$$ \text{Var}[X] = \lambda $$
+
 ### 4. Distribusi Hipergeometri
+Distribusi ini menyatakan peluang terjadinya k sukses yang terambil dari dari n pengambilan dari populasi berukuran N, dimana ada K sukses di dalam populasi tersebut. 
+
+Sehingga fungsi peluang untuk distribusi hipergeometri menggunakan konsep kombinasi.
+
+$$ P(X=k) = \frac{{\binom{K}{k} \binom{N-K}{n-k}}}{{\binom{N}{n}}} $$
+
+dimana
+
+$$ k = \text{banyaknya sukses dari dari suatu pengambilan} $$
+
+$$ n = \text{banyaknya pengambilan} $$
+
+$$ K = \text{banyaknya sukses yang berada di Populasi} $$
+
+$$ N = \text{Ukuran populasi} $$
+
 ### 5. Binomial Negatif
+Distribusi binomial negatif merupakan banyaknya usaha yang dilakukan **sampai didapatkan k sukses**. Sama halnya dengan percobaan bernouli yang dilakukan berulang kali sampai didapatkan k sukses. 
+
+Contohnya adalah banyaknya bohlam yang harus diperiksa sampai ditemukan 5 buah bohlam mati (k=5). Fungsi peluangnya adalah 
+
+$$ P(X = k) = \binom{k-1}{r-1} \cdot p^r \cdot (1-p)^{k-r} $$
+
+dimana
+
+$$ k = \text{banyaknya sukses} $$
+
+$$ x = \text{banyaknya tindakan/percobaan} $$
+
+$$ E[X] = \frac{r}{p} $$
+
+$$ \text{Var}[X] = \frac{r \cdot (1-p)}{p^2} $$
+
 ### 6. Distribusi Geometri
+Distribusi ini menyatakan banyaknya usaha yang harus dilakukan untuk mendapatkan sukses pertama. Dengan kata lain, percobaan bernouli yang diulang berkali-kali sampai didapatkan sukses yang pertama. 
+
+Bisa dibilang juga bahwa distribusi geometri = distribusi binomial negatif saat k = 1. maka fungsi peluang distribusi geometri adalah
+
+$$ P(X = k) = (1-p)^{k-1}p $$
+
+dimana
+
+$$ p  = \text{peluang sukses} $$
+
+$$ k  = \text{banyaknya tindakan sukses} $$
+
+$$ E[X] = \frac{1}{p} $$
+
+$$ \text{Var}[X] = \frac{1-p}{p^2} $$
