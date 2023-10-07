@@ -8,8 +8,8 @@ $$ P(X=k) = p^k \cdot (1-p)^{1-k} \quad \text{untuk } k \in \{0,1\} $$
 
 dimana
 
-p = probabilitas keberhasilan <br>
-$$ E[X] = p $$ <br>
+$$ p = probabilitas keberhasilan $$
+$$ E[X] = p $$ 
 $$ \text{Var}[X] = p \cdot (1-p) $$
 
 
