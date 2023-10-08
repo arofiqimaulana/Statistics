@@ -100,3 +100,7 @@ $$ k  = \text{banyaknya tindakan sukses} $$
 $$ E[X] = \frac{1}{p} $$
 
 $$ \text{Var}[X] = \frac{1-p}{p^2} $$
+
+
+## Reference
+- https://repository.unikom.ac.id/66709/1/BAB%208%20Macam-macam%20distribusi.pdf
