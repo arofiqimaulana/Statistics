@@ -47,7 +47,9 @@ Distribusi sampel T didapat dari anggapan bahwa sampel acak berasal dari populas
 
 $$ T=\frac{(\bar{X}-\mu)(\sigma/\sqrt n)}{\sqrt{S^2/\sigma^2}}=\frac{Z}{\sqrt{V(n-1)}} $$
 
-dengan $$ Z=\frac{\bar{X}-\mu}{\sigma/\sqrt n}\ \ \ ;\ \ \ V\ =\ \frac{(n-1)S^2}{\sigma^2} $$
+dengan 
+
+$$ Z=\frac{\bar{X}-\mu}{\sigma/\sqrt n}\ \ \ ;\ \ \ V\ =\ \frac{(n-1)S^2}{\sigma^2} $$
 
 Jika Z adalah peubah acak normal baku dan V adalah peubah acak Chi-Square dengan derajat kebebasan v. Jika Z dan V bebas, maka distribusi peubah acak T adalah
 
